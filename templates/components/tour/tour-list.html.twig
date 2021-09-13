@@ -1,0 +1,5 @@
+{%- for tour in tours -%}
+    {% include 'components/tour/tour-list-item.html.twig' with {
+        tour: tour
+    } only %}
+{%- endfor -%}

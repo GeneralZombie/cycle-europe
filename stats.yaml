@@ -1,0 +1,25 @@
+tours:
+    allgaeu-2015: { distance: 402478.23819796, elevationGain: 3285.267151, elevationLoss: 3283.1938 }
+    alpenueberquerung-2019: { distance: 689721.66661345, elevationGain: 7447.729751, elevationLoss: 8024.405884 }
+    bodensee-koenigssee-2020: { distance: 585623.5511694, elevationGain: 7108.686637, elevationLoss: 7124.242743 }
+    elbe-2017: { distance: 229706.76102205, elevationGain: 1801.158499, elevationLoss: 1474.73666 }
+    main-2016: { distance: 434579.27768345, elevationGain: 1712.599938, elevationLoss: 1632.284899 }
+    mecklenburg-vorpommern-2020: { distance: 627118.56639916, elevationGain: 4869.392675, elevationLoss: 4921.335719 }
+    mosel-2014: { distance: 312310.5161764, elevationGain: 1251.826647, elevationLoss: 1359.195413 }
+    norwegen-2018: { distance: 1787071.1200044, elevationGain: 25576.669437, elevationLoss: 26641.289949 }
+    ostsee-2014: { distance: 455838.67255637, elevationGain: 1241.81172, elevationLoss: 1276.919703 }
+    pfalz-2021: { distance: 183098.77259934, elevationGain: 2454.240318, elevationLoss: 2464.39013 }
+    provence-2015: { distance: 298481.64178932, elevationGain: 1338.451025, elevationLoss: 1383.923423 }
+    provence-2017: { distance: 243781.47666521, elevationGain: 3432.333601, elevationLoss: 3790.043376 }
+    provence-code-d-azur-2018: { distance: 239408.83568125, elevationGain: 3260.81244, elevationLoss: 3657.143016 }
+    provencelona-2019: { distance: 626339.95525948, elevationGain: 5961.520509, elevationLoss: 6350.536144 }
+    rhein-2021: { distance: 306437.71962322, elevationGain: 2504.371528, elevationLoss: 2581.044266 }
+    sardinien-2017: { distance: 930488.22333911, elevationGain: 10272.549572, elevationLoss: 10344.702977 }
+    schwarzwald-2018: { distance: 262482.73027693, elevationGain: 4252.382316, elevationLoss: 4036.487353 }
+    schweden-2020: { distance: 1808708.2114076, elevationGain: 18319.69715, elevationLoss: 18345.196953 }
+    slowenien-2021: { distance: 595981.78448435, elevationGain: 8326.407124, elevationLoss: 8442.097379 }
+    velodyssey-2016: { distance: 1142665.0910806, elevationGain: 4065.813684, elevationLoss: 4085.987404 }
+total:
+    distance: 12162322.812029
+    elevationGain: 118483.721722
+    elevationLoss: 121219.157191

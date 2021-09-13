@@ -1,0 +1,22 @@
+<div class="meta-information d-flex flex-wrap mb-2">
+    {% if days | default %}
+        <div class="meta-information-item d-flex align-items-center mb-1">
+            {% include 'components/icons/calendar.html.twig' %}
+            <span class="ms-1 text-nowrap">{{ days }} Tag{% if days != 1 %}e{% endif %}</span>
+        </div>
+    {% endif %}
+
+    {% if distance | default %}
+        <div class="meta-information-item d-flex align-items-center mb-1">
+            {% include 'components/icons/road.html.twig' %}
+            <span class="ms-1 text-nowrap">{{ (distance / 1000) | number_format(0, ',', '.') }} km</span>
+        </div>
+    {% endif %}
+
+    {% if elevationGain | default %}
+        <div class="meta-information-item d-flex align-items-center mb-1">
+            {% include 'components/icons/mountain.html.twig' %}
+            <span class="ms-1 text-nowrap">{{ elevationGain | number_format(0, ',', '.') }} hm</span>
+        </div>
+    {% endif %}
+</div>

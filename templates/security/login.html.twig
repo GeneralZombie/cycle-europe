@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Admin Login{% endblock %}
+
+{% block main %}
+    <div class="container-fluid container-lg">
+        <div class="row">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 offset-sm-1 offset-md-2 offset-lg-3">
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+
+                    <h1>Login</h1>
+
+                    <div class="mb-3">
+                        <label for="inputUsername">Benutzername</label>
+                        <input value="{{ last_username }}" name="username" id="inputUsername"
+                               class="form-control" required autofocus>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputPassword">Passwort</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control" required>
+                    </div>
+
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
+
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> Remember me
+                        </label>
+                    </div>
+
+                    <button class="btn btn-secondary text-white" type="submit">
+                        Einloggen
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

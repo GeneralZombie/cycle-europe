@@ -1,0 +1,110 @@
+@import "variables"
+@import "~bootstrap/scss/bootstrap"
+@import "~bootstrap-icons/font/bootstrap-icons.css"
+
+.bg-stripes
+  $bg-highlight-color: rgba($white, 1)
+  background: repeating-linear-gradient(38deg, transparent, transparent 30px, $bg-highlight-color 30px, $bg-highlight-color 60px), linear-gradient(to bottom, darken($body-bg, 2%), darken($body-bg, 2%))
+
+body
+  min-height: 100vh
+  display: flex
+
+main
+  padding-top: 1rem
+  padding-bottom: 1rem
+  margin-top: 3rem
+  flex-grow: 1
+
+h1
+  text-align: center
+
+.lead
+  text-align: center
+
+header
+  .header-link
+    display: flex
+    align-items: center
+    color: $white
+
+    i
+      font-size: 2rem
+
+.meta-information
+  justify-content: center
+
+  .meta-information-item
+    &:not(:first-child)
+      margin-left: 1rem
+
+    &:not(:last-child)
+      margin-right: 1rem
+
+    .icon
+      height: 1.6em
+
+      &.icon-calendar
+        height: 1.3em
+
+.tour-list-item
+  color: $body-color
+  text-decoration: none
+  padding-left: 0
+  transition: padding-left 0.2s ease-in-out
+
+  .tour-image
+    opacity: 0.75
+    max-height: 100%
+    width: auto
+    transition: opacity 0.2s ease-in-out
+
+  .meta-information
+    margin-top: 0.2rem
+    font-size: 0.8rem
+    justify-content: flex-start
+
+    .meta-information-item
+      &:not(:first-child)
+        margin-left: 0.5rem
+
+      &:not(:last-child)
+        margin-right: 0.5rem
+
+  &:hover
+    padding-left: 2em
+    color: $white
+    background: repeating-linear-gradient(38deg, transparent, transparent 30px, $primary 30px, $primary 60px), linear-gradient(to bottom, lighten($primary, 1%), lighten($primary, 1%))
+
+    .tour-image
+      opacity: 1
+
+    .meta-information .icon
+      color: $white
+      fill: $white
+
+.map-wrapper
+  #map
+    height: 512px
+    border: 2px solid $primary
+    border-radius: 0.25em
+
+    &.loading
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0
+
+  .progress
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+
+.bg-tertiary
+  --bs-bg-opacity: 1
+  background-color: $tertiary !important
+
+.bg-quarternary
+  --bs-bg-opacity: 1
+  background-color: $quarternary !important
+
+.leaflet-tooltip
+  background-color: $secondary !important
+  color: $white !important

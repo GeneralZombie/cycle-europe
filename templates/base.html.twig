@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>{% block title %}Cycle Europe{% endblock %}</title>
+
+        <meta name="description" value="{% block metaDescription %}Dies ist ein Blog über meine Radreisen{% endblock %}"
+
+        <link rel="canonical" href="{% block canoncial %}{{ app.request.scheme }}://{{ app.request.host }}{{ app.request.pathInfo }}{% endblock %}">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% block header %}
+            {% include 'components/layout/header.html.twig' only %}
+        {% endblock %}
+
+        {% block body %}
+            <main class="bg-stripes">
+                {% block main %}
+                {% endblock %}
+            </main>
+        {% endblock %}
+    </body>
+</html>

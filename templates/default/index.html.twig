@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    {% include 'components/tour/header.html.twig' with {
+        tour: cycleEurope,
+        gpxTracks: gpxTracks
+    } only %}
+
+    <div class="bg-tertiary mb-4 pt-1 pb-1">
+        <div class="container-fluid container-lg">
+            <h2 class="m-0">
+                <span class="text-white">Touren</span>
+            </h2>
+        </div>
+    </div>
+
+    {% include 'components/tour/tour-list.html.twig' with {
+        tours: tours
+    } %}
+{% endblock %}

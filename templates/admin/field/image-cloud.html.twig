@@ -1,0 +1,8 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{# @var field \EasyCorp\Bundle\EasyAdminBundle\Dto\FieldDto #}
+{# @var entity \EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto #}
+
+{% set src = field.formattedValue %}
+{% if src | default %}
+    <img src="{{ cloudinary(src, null, 48) }}" class="img-fluid" alt=""/>
+{% endif %}

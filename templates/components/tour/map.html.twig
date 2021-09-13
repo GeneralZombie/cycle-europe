@@ -1,0 +1,19 @@
+<div class="row mb-4 mt-3">
+    <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <div data-controller="map"
+             data-gpx-tracks="{{ gpxTracks | json_encode }}"
+             class="map-wrapper"
+        >
+            <div id="map" class="mb-0 loading" data-map-target="map"></div>
+
+            <div class="progress mb-2" data-map-target="progress">
+                <div data-map-target="progressBar" class="progress-bar progress-bar-striped progress-bar-animated "
+                     role="progressbar" aria-valuenow="0" aria-valuemin="1" aria-valuemax="100" style="width: 1%"></div>
+            </div>
+
+            <div class="alert alert-danger" data-map-target="error" style="display: none">
+                <p class="mb-0" data-map-target="errorMessage"></p>
+            </div>
+        </div>
+    </div>
+</div>

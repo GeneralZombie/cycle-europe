@@ -1,0 +1,43 @@
+<div class="container-fluid container-lg">
+    {% if tour.startedAt | default and tour.finishedAt | default %}
+        <p class="mb-2 text-center">
+            <small class="bg-primary text-white p-1">
+                {{ tour.startedAt | date('d.m.Y') }} - {{ tour.finishedAt | date('d.m.Y') }}
+            </small>
+        </p>
+    {% endif %}
+
+    <h1>
+        <span class="bg-primary text-white ps-1 pe-1">{{ tour.title }}</span>
+    </h1>
+
+    {% if tour.subtitle | default %}
+        <p class="lead">
+            <span class="bg-primary text-white p-1">{{ tour.subtitle }}</span>
+        </p>
+    {% endif %}
+</div>
+
+<div class="bg-quarternary pt-1">
+    <div class="container-fluid container-lg">
+        {% include 'components/tour/meta-information.html.twig' with {
+            days: tour.durationInDays,
+            distance: tour.distance,
+            elevationGain: tour.elevationGain,
+        } only %}
+    </div>
+</div>
+
+<div class="container-fluid container-lg">
+    {% include 'components/tour/map.html.twig' with {
+        gpxTracks: gpxTracks
+    } only %}
+
+    {% if tour.description | default %}
+        <div class="row mb-5">
+            <div class="col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+                {{ tour.description | raw }}
+            </div>
+        </div>
+    {% endif %}
+</div>
