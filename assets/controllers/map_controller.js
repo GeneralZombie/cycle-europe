@@ -1,5 +1,5 @@
-import 'leaflet/dist/leaflet.css';
 import { Controller } from 'stimulus';
+import 'leaflet/dist/leaflet.css';
 import L from 'leaflet'
 import 'leaflet-gpx'
 

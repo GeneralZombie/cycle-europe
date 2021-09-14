@@ -103,3 +103,69 @@ header
 .leaflet-tooltip
   background-color: $secondary !important
   color: $white !important
+
+.modal
+  &.modal-image
+    .modal-dialog
+      @media (min-width: map_get($grid-breakpoints, 'sm'))
+        max-width: 1116px
+        min-height: 800px
+        margin-left: 0.5rem
+        margin-right: 0.5rem
+
+      @media (min-width: map_get($grid-breakpoints, 'md'))
+        margin-left: 1.5rem
+        margin-right: 1.5rem
+
+      @media (min-width: map_get($grid-breakpoints, 'xl'))
+        margin-left: auto
+        margin-right: auto
+
+      .modal-header
+        border-bottom: none
+        justify-content: center
+
+        .modal-title
+          font-size: 1rem
+          line-height: initial
+          flex-grow: 1
+          text-align: center
+          font-weight: 100
+
+      .modal-body
+        position: relative
+        min-height: 66vw
+        display: flex
+        justify-content: center
+        align-items: center
+        padding-top: 0
+
+      .modal-footer
+        border-top: none
+        padding-top: 0
+        display: flex
+        justify-content: space-between
+
+      .controls
+        position: absolute
+        width: 50%
+        height: 100%
+        text-decoration: none
+        font-size: 5rem
+        top: 0
+        display: flex
+        align-items: center
+        color: transparent
+        transition: color 0.2s ease-in-out
+
+        &:hover
+          &:not(.disabled)
+            color: $white
+
+        &.controls-previous
+          left: 0
+          justify-content: flex-start
+
+        &.controls-next
+          right: 0
+          justify-content: flex-end

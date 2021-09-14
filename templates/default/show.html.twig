@@ -8,13 +8,13 @@
     } %}
 {% endblock %}
 
+{% set images = tourImages(tour) %}
+
 {% block main %}
     {% include 'components/tour/header.html.twig' with {
         tour: tour,
         gpxTracks: gpxTracks
     } only %}
-
-    {% set images = tourImages(tour) %}
 
     {% if images | default %}
         <div class="bg-tertiary pt-1 mb-4">
@@ -25,14 +25,9 @@
             </div>
         </div>
 
-        <div class="container-fluid container-lg">
-            <div class="row">
-                {% for image in images %}
-                    <div class="col-12 col-lg-6 col-xl-4">
-                        <img src="{{ cloudinary(image, 992) }}" alt="{{ tour.title }}" class="img-fluid mb-4"/>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
+        {% include 'components/tour/image-gallery.html.twig' with {
+            images: images,
+            title: tour.title
+        } only %}
     {% endif %}
 {% endblock %}

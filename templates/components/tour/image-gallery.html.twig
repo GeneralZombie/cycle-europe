@@ -1,0 +1,51 @@
+<div
+        class="container-fluid container-lg"
+        data-controller="gallery"
+>
+    <div class="row">
+        {% for image in images %}
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                <a href="#"
+                   data-gallery-target="toggle"
+                   data-index="{{ loop.index0 }}"
+                   data-bs-toggle="modal"
+                   data-bs-target="#image-modal"
+                   data-src="{{ cloudinary(image, 1114) }}"
+                >
+                    <img
+                            src="{{ cloudinary(image, 576) }}"
+                            alt="{{ title }}"
+                            class="img-fluid mb-4"
+                    />
+                </a>
+            </div>
+
+
+        {% endfor %}
+    </div>
+
+    <div class="modal modal-image" tabindex="-1" id="image-modal" data-gallery-target="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ title }}: <span data-gallery-target="imageIndex">0</span>/{{ images | length }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img
+                            data-gallery-target="image"
+                            src="{{ asset('images/skateboarding.gif') }}"
+                            alt="{{ title }}"
+                            class="img-fluid"
+                    />
+                    <a class="controls controls-previous" href="#" data-gallery-target="previous">
+                        <i class="bi bi-chevron-left ms-2"></i>
+                    </a>
+                    <a class="controls controls-next" href="#" data-gallery-target="next">
+                        <i class="bi bi-chevron-right me-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
