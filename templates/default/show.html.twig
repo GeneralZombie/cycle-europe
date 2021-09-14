@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} | {{ tour.title }}{% endblock %}
+{% block metaProperties %}
+    {% include 'components/layout/meta-properties.html.twig' with {
+        title: 'Cycle Europe | ' ~ tour.title,
+        description:  'Radreise ' ~ tour.title ~ ': ' ~ tour.subtitle,
+        image: tour.poster? : 'bike/cycle-europe.png'
+    } %}
+{% endblock %}
 
 {% block main %}
     {% include 'components/tour/header.html.twig' with {
@@ -8,7 +14,9 @@
         gpxTracks: gpxTracks
     } only %}
 
-    {% if tour.images | default %}
+    {% set images = tourImages(tour) %}
+
+    {% if images | default %}
         <div class="bg-tertiary pt-1 mb-4">
             <div class="container-fluid container-lg">
                 <h2 class="pb-1 m-0">
@@ -19,7 +27,7 @@
 
         <div class="container-fluid container-lg">
             <div class="row">
-                {% for image in tour.images %}
+                {% for image in images %}
                     <div class="col-12 col-lg-6 col-xl-4">
                         <img src="{{ cloudinary(image, 992) }}" alt="{{ tour.title }}" class="img-fluid mb-4"/>
                     </div>
@@ -27,7 +35,4 @@
             </div>
         </div>
     {% endif %}
-
-
-
 {% endblock %}

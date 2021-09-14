@@ -2,6 +2,14 @@
 
 {% block title %}{{ parent() }} | About{% endblock %}
 
+{% block metaProperties %}
+    {% include 'components/layout/meta-properties.html.twig' with {
+        title: 'Cycle Europe | About',
+        description:  'Auf dieser Seite erkläre ich die Motivation hinter meinem Radreise-Blog.',
+        image: 'bike/cycle-europe.png'
+    } %}
+{% endblock %}
+
 {% block main %}
     <div class="container-fluid container-lg">
         <h1>

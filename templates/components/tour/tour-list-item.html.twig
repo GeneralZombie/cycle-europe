@@ -3,12 +3,12 @@
         <div class="d-flex flex-row">
 
             <div class="tour-image">
-                {% if tour.highlightImage %}
-                    {% set previewImage = tour.highlightImage %}
+                {% if tour.poster %}
+                    {% set poster = tour.poster %}
                 {% else %}
-                    {% set previewImage = 'bike/cycle-europe.png' %}
+                    {% set poster = 'bike/cycle-europe.png' %}
                 {% endif %}
-                <img src="{{ cloudinary(previewImage, null, 110) }}" alt="{{ tour.title }}" class="me-4"/>
+                <img src="{{ cloudinary(poster, 164, 110) }}" alt="{{ tour.title }}" class="me-4"/>
             </div>
 
             <div>

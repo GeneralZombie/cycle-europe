@@ -2,6 +2,7 @@
 
 namespace App\Twig;
 
+use App\Entity\Tour;
 use App\Service\CloudinaryHelper;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -19,7 +20,16 @@ class CloudinaryExtension extends AbstractExtension
     {
         return [
             new TwigFunction('cloudinary', [$this, 'cloudinary']),
+            new TwigFunction('tourImages', [$this, 'tourImages']),
         ];
+    }
+
+    /**
+     * @return array<string>
+     */
+    public function tourImages(Tour $tour): array
+    {
+        return $this->cloudinaryHelper->getImagesForTour($tour);
     }
 
     public function cloudinary(string $src, ?int $width = null, ?int $height = null): string

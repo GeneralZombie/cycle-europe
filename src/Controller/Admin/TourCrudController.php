@@ -15,7 +15,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\SearchDto;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
@@ -68,8 +67,8 @@ class TourCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield ImageCloudField::new('highlightImage')
-            ->setLabel('')
+        yield ImageCloudField::new('poster')
+            ->setLabel('Poster')
             ->onlyOnIndex();
 
         yield BooleanField::new('active')
@@ -93,15 +92,15 @@ class TourCrudController extends AbstractCrudController
             ->setLabel('Beschreibung')
             ->hideOnIndex();
 
+        yield TextField::new('poster')
+            ->setLabel('Poster')
+            ->hideOnIndex();
+
         yield DateField::new('startedAt')
             ->setLabel('Von');
 
         yield DateField::new('finishedAt')
             ->setLabel('Bis');
-
-        yield ArrayField::new('images')
-            ->setLabel('Bilder')
-            ->hideOnIndex();
 
         yield IntegerField::new('distance')
             ->setLabel('Distanz')

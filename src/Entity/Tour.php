@@ -26,8 +26,8 @@ class Tour implements StatsInterface, GpxFilesInterface, SanityCheckInterface
     #[ORM\Column(type: "boolean")]
     private bool $hideInList = false;
 
-    #[ORM\Column(type: "array", nullable: true)]
-    private $images = [];
+    #[ORM\Column(type: "string", nullable: true)]
+    private string $poster;
 
     public function getDescription(): ?string
     {
@@ -49,20 +49,14 @@ class Tour implements StatsInterface, GpxFilesInterface, SanityCheckInterface
         $this->hideInList = $hideInList;
     }
 
-
-    public function getImages(): ?array
+    public function getPoster(): ?string
     {
-        return $this->images ?? null;
+        return $this->poster ?? null;
     }
 
-    public function setImages(?array $images): void
+    public function setPoster(?string $poster): void
     {
-        $this->images = $images;
-    }
-
-    public function getHighlightImage(): ?string
-    {
-        return reset($this->images) ?: null;
+        $this->poster = $poster;
     }
 
     public function __toString(): string

@@ -2,14 +2,15 @@
 <html lang="de">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>{% block title %}Cycle Europe{% endblock %}</title>
-
-        <meta name="description" value="{% block metaDescription %}Dies ist ein Blog über meine Radreisen{% endblock %}"
-
-        <link rel="canonical" href="{% block canoncial %}{{ app.request.scheme }}://{{ app.request.host }}{{ app.request.pathInfo }}{% endblock %}">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block metaProperties %}
+            {% include 'components/layout/meta-properties.html.twig' with {
+                title: 'Cycle Europe',
+                description: 'Dies ist ein Radreise-Blog.',
+                image: 'bike/cycle-europe.png'
+            } %}
+        {% endblock %}
 
         {% block favicon %}
             <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('/apple-icon-57x57.png') }}">
