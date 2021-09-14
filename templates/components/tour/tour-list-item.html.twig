@@ -1,11 +1,16 @@
 <a class="tour-list-item d-flex flex-column pb-2 pt-2" href={{ path('show', {slug: tour.slug}) }}>
     <div class="container-fluid container-lg">
         <div class="d-flex flex-row">
-            {% if tour.highlightImage %}
-                <div class="tour-image">
-                    <img src="{{ cloudinary(tour.highlightImage, null, 110) }}" alt="{{ tour.title }}" class="me-4"/>
-                </div>
-            {% endif %}
+
+            <div class="tour-image">
+                {% if tour.highlightImage %}
+                    {% set previewImage = tour.highlightImage %}
+                {% else %}
+                    {% set previewImage = 'bike/cycle-europe.png' %}
+                {% endif %}
+                <img src="{{ cloudinary(previewImage, null, 110) }}" alt="{{ tour.title }}" class="me-4"/>
+            </div>
+
             <div>
                 <p class="mb-0">
                     <small>
