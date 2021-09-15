@@ -10,7 +10,7 @@ const BASE_MAPS = {
     stamenToner: 'http://a.tile.stamen.com/toner/{z}/{x}/{y}.png',
     hikeBike: 'https://tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png',
     osmFrance: 'http://a.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',
-    standard: 'https://c.tile.openstreetmap.de/{z}/{x}/{y}.png',
+    standard: 'https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png',
 }
 
 const BASE_URL = '/';
@@ -95,8 +95,10 @@ export default class extends Controller {
                 } else {
                     bounds = gpx.getBounds();
                 }
-                console.log(bounds);
-                map.fitBounds(bounds);
+
+                if (filesLoaded === 1) {
+                    map.fitBounds(bounds);
+                }
 
                 const progressInPercentage = Math.round(filesLoaded / gpxTracks.length * 100);
 
@@ -105,6 +107,8 @@ export default class extends Controller {
 
 
                 if (filesLoaded === gpxTracks.length) {
+                    map.fitBounds(bounds);
+
                     setTimeout(() => {
                         self.progressTarget.style.visibility = 'hidden';
                         self.mapTarget.classList.remove('loading');
