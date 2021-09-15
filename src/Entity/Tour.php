@@ -12,6 +12,7 @@ use App\Traits\StatsTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TourRepository::class)]
+#[ORM\Table(name: 'tour')]
 class Tour implements StatsInterface, GpxFilesInterface, SanityCheckInterface
 {
     use EntityTrait;
