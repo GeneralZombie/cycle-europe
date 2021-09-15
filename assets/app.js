@@ -10,3 +10,13 @@ import './styles/app.sass';
 
 // start the Stimulus application
 import './bootstrap';
+
+function isTouchEnabled() {
+    return ('ontouchstart' in window) ||
+        (navigator.maxTouchPoints > 0) ||
+        (navigator.msMaxTouchPoints > 0);
+}
+
+if (isTouchEnabled) {
+    document.body.classList.add('touch-device');
+}

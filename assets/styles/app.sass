@@ -194,11 +194,6 @@ header
           &:not(.disabled)
             color: $white
 
-        @media (hover: none)
-          &:hover
-            &:not(.disabled)
-              color: transparent
-
         &.controls-previous
           left: 0
           justify-content: flex-start
@@ -206,3 +201,8 @@ header
         &.controls-next
           right: 0
           justify-content: flex-end
+
+body.touch-device
+  .modal.modal-image .modal-dialog .controls
+    &:hover
+      color: transparent
