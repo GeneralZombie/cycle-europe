@@ -1,5 +1,11 @@
-{%- for tour in tours -%}
-    {% include 'components/tour/tour-list-item.html.twig' with {
-        tour: tour
-    } only %}
-{%- endfor -%}
+<div class="container-fluid container-lg">
+    <div class="row">
+        {%- for tour in tours -%}
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 d-flex flex-column">
+                {% include 'components/tour/tour-list-item.html.twig' with {
+                    tour: tour
+                } only %}
+            </div>
+        {%- endfor -%}
+    </div>
+</div>

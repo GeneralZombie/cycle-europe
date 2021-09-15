@@ -9,6 +9,7 @@
 body
   min-height: 100vh
   display: flex
+  flex-direction: column
 
 main
   padding-top: 1rem
@@ -50,29 +51,40 @@ header
 .tour-list-item
   color: $body-color
   text-decoration: none
-  padding-left: 0
-  transition: padding-left 0.2s ease-in-out
+  margin-top: 0.75rem
+  margin-bottom: 0.75rem
+  border: 1px solid $primary
 
   .tour-image
     max-height: 100%
     width: auto
+    opacity: 0.85
 
-  .meta-information
-    margin-top: 0.2rem
-    font-size: 0.8rem
-    justify-content: flex-start
+    img
+      width: 100%
 
-    .meta-information-item
-      &:not(:first-child)
-        margin-left: 0.5rem
+  .tour-info
+    padding: 0.75rem 0.75rem 0.25rem 0.75rem
 
-      &:not(:last-child)
+    .meta-information
+      margin-top: 0.2rem
+      font-size: 0.8rem
+      justify-content: flex-start
+
+      .meta-information-item
         margin-right: 0.5rem
+        margin-left: 0
+
+        @media (min-width: map_get($grid-breakpoints, 'sm'))
+          &:not(:first-child)
+            margin-left: 0.5rem
 
   &:hover
-    padding-left: 2em
     color: $white
-    background: repeating-linear-gradient(38deg, transparent, transparent 30px, $primary 30px, $primary 60px), linear-gradient(to bottom, lighten($primary, 1%), lighten($primary, 1%))
+    background: repeating-linear-gradient(38deg, transparent, transparent 30px, $primary 30px, $primary 60px), linear-gradient(to bottom, lighten($primary, 2%), lighten($primary, 2%))
+
+    .tour-image
+      opacity: 1
 
     .meta-information .icon
       color: $white
@@ -107,13 +119,13 @@ header
 .modal
   &.modal-image
     .modal-dialog
-      @media (min-width: map_get($grid-breakpoints, 'sm'))
-        max-width: 1116px
-        min-height: 800px
-        margin-left: 0.5rem
-        margin-right: 0.5rem
+      max-width: 1116px
+      min-height: 800px
+      margin-left: 0.5rem
+      margin-right: 0.5rem
 
       @media (min-width: map_get($grid-breakpoints, 'md'))
+        margin-top: 1rem
         margin-left: 1.5rem
         margin-right: 1.5rem
 
@@ -121,9 +133,16 @@ header
         margin-left: auto
         margin-right: auto
 
+      .modal-content
+        border-radius: 0
+
       .modal-header
         border-bottom: none
         justify-content: center
+        border-top-left-radius: 0
+        border-top-right-radius: 0
+        padding-top: 0.5rem
+        padding-bottom: 0.5rem
 
         .modal-title
           font-size: 1rem
@@ -138,13 +157,26 @@ header
         display: flex
         justify-content: center
         align-items: center
-        padding-top: 0
+        padding: 0
 
       .modal-footer
         border-top: none
         padding-top: 0
         display: flex
         justify-content: space-between
+        border-bottom-left-radius: 0
+        border-bottom-right-radius: 0
+
+      .close
+        background: none
+        border: none
+        font-size: 1.5em
+        color: white
+        opacity: 0.75
+        transition: opacity 0.2s ease-in-out
+
+        &:hover
+          opacity: 1
 
       .controls
         position: absolute

@@ -36,7 +36,7 @@
     {% if tour.description | default %}
         <div class="row mb-5">
             <div class="col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
-                {{ tour.description | raw }}
+                <p class="fw-light">{{ tour.description | raw }}</p>
             </div>
         </div>
     {% endif %}

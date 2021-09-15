@@ -30,20 +30,25 @@ class CloudinaryHelper
     {
         $cloudinary = new Cloudinary(new Configuration($this->cloudinaryUrl));
 
-        $assets = $cloudinary->adminApi()->assets([
-            'type' => 'upload',
-            'prefix' => sprintf(self::UPLOAD_PATH, $tour->getSlug()),
-            'max_results' => 100
-        ]);
-
         $files = [];
 
-        foreach($assets as $asset) {
-            foreach ($asset as $resource) {
-                if (is_array($resource) && array_key_exists('public_id', $resource) && array_key_exists('format', $resource)) {
-                    $files[] = $resource['public_id'] . '.' . $resource['format'];
+        try {
+            $assets = $cloudinary->adminApi()->assets([
+                'type' => 'upload',
+                'prefix' => sprintf(self::UPLOAD_PATH, $tour->getSlug()),
+                'max_results' => 100
+            ]);
+
+
+            foreach ($assets as $asset) {
+                foreach ($asset as $resource) {
+                    if (is_array($resource) && array_key_exists('public_id', $resource) && array_key_exists('format', $resource)) {
+                        $files[] = $resource['public_id'] . '.' . $resource['format'];
+                    }
                 }
             }
+        } catch (\Exception $exception) {
+            // TODO: Errorhandling
         }
 
         return $files;

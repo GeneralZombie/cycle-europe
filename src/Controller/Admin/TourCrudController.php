@@ -19,6 +19,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Orm\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -88,7 +89,7 @@ class TourCrudController extends AbstractCrudController
             ->setLabel('Untertitel')
             ->hideOnIndex();
 
-        yield TextareaField::new('description')
+        yield TextEditorField::new('description')
             ->setLabel('Beschreibung')
             ->hideOnIndex();
 

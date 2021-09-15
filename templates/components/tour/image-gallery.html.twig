@@ -27,9 +27,13 @@
     <div class="modal modal-image" tabindex="-1" id="image-modal" data-gallery-target="modal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">{{ title }}: <span data-gallery-target="imageIndex">0</span>/{{ images | length }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header bg-secondary">
+                    <h5 class="modal-title text-white ">
+                        {{ title }}: <span data-gallery-target="imageIndex">0</span>/{{ images | length }}
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x-circle"></i>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <img
@@ -45,6 +49,7 @@
                         <i class="bi bi-chevron-right me-2"></i>
                     </a>
                 </div>
+                <div class="modal-footer bg-secondary"></div>
             </div>
         </div>
     </div>
