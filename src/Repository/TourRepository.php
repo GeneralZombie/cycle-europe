@@ -23,7 +23,7 @@ class TourRepository extends ServiceEntityRepository
     {
         $conn = $this->_em->getConnection();
 
-        $sql = 'SELECT t.slug FROM Tour t WHERE t.id = :id';
+        $sql = 'SELECT t.slug FROM tour t WHERE t.id = :id';
         $stmt = $conn->prepare($sql);
         $result =  $stmt->executeQuery(['id' => $id])->fetchAllAssociative();
 

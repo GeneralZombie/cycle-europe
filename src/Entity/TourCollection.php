@@ -13,7 +13,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TourCollectionRepository::class)]
-#[ORM\Table(name: 'tour_collection')]
 class TourCollection implements StatsInterface, GpxFilesInterface, SanityCheckInterface
 {
     public const CYCLE_EUROPE_SLUG = 'cycle-europe';
