@@ -119,22 +119,26 @@ header
 .modal
   &.modal-image
     .modal-dialog
-      max-width: 1116px
-      min-height: 800px
       margin-left: 0.5rem
       margin-right: 0.5rem
+      max-width: initial
 
       @media (min-width: map_get($grid-breakpoints, 'md'))
         margin-top: 1rem
         margin-left: 1.5rem
         margin-right: 1.5rem
 
-      @media (min-width: map_get($grid-breakpoints, 'xl'))
+      @media (min-width: map_get($grid-breakpoints, 'lg'))
         margin-left: auto
         margin-right: auto
+        max-width: 800px
+
+      @media (min-width: map_get($grid-breakpoints, 'xl'))
+        max-width: 900px
 
       .modal-content
         border-radius: 0
+        max-height: 90vh
 
       .modal-header
         border-bottom: none
@@ -153,11 +157,18 @@ header
 
       .modal-body
         position: relative
-        min-height: 66vw
+        min-height: 50vw
+        overflow: hidden
         display: flex
         justify-content: center
         align-items: center
         padding: 0
+
+        @media (min-width: map-get($grid-breakpoints, 'lg'))
+          min-height: 400px
+
+        @media (min-width: map-get($grid-breakpoints, 'xl'))
+          min-height: 500px
 
       .modal-footer
         border-top: none
@@ -190,9 +201,10 @@ header
         color: transparent
         transition: color 0.2s ease-in-out
 
-        &:hover
-          &:not(.disabled)
-            color: $white
+        @media (min-width: map-get($grid-breakpoints, 'sm'))
+          &:hover
+            &:not(.disabled)
+              color: $white
 
         &.controls-previous
           left: 0
@@ -201,8 +213,3 @@ header
         &.controls-next
           right: 0
           justify-content: flex-end
-
-body.touch-device
-  .modal.modal-image .modal-dialog .controls
-    &:hover
-      color: transparent
