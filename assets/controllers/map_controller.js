@@ -50,7 +50,7 @@ export default class extends Controller {
         const map = L.map('map', options);
 
         new L.TileLayer(BASE_MAPS.standard, {
-            attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a>',
+            attribution: 'Map data &copy; <a href="https://www.osm.org" target="_blank" rel="noreferrer nofollow">OpenStreetMap</a>',
         }).addTo(map);
 
         let filesLoaded = 0;
@@ -95,6 +95,7 @@ export default class extends Controller {
                 } else {
                     bounds = gpx.getBounds();
                 }
+                console.log(bounds);
                 map.fitBounds(bounds);
 
                 const progressInPercentage = Math.round(filesLoaded / gpxTracks.length * 100);
