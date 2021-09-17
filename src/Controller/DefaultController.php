@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Tour;
+use App\Model\GpxTrack;
 use App\Service\TourCollectionManager;
 use App\Service\TourManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -39,7 +40,11 @@ class DefaultController extends AbstractController
     {
         $tour = $entityManager->getRepository(Tour::class)->findOneBy(['slug' => $slug]);
 
-        $gpxTracks = $tourManager->getGpxTracks($tour);
+      //  $gpxTracks = $tourManager->getGpxTracks($tour);
+
+        $gpxTracks = [
+            new GpxTrack('gpx/tour-collection/cycle-europe/' . $tour->getSlug() . '.gpx')
+        ];
 
         return $this->render('default/show.html.twig', [
             'tour' => $tour,
