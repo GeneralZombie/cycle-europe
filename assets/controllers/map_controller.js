@@ -97,7 +97,7 @@ export default class extends Controller {
                 }
 
                 if (filesLoaded === 1) {
-                    map.fitBounds(bounds);
+                   // map.fitBounds(bounds);
                 }
 
                 const progressInPercentage = Math.round(filesLoaded / gpxTracks.length * 100);
@@ -107,7 +107,7 @@ export default class extends Controller {
 
 
                 if (filesLoaded === gpxTracks.length) {
-                    map.fitBounds(bounds);
+                 //   map.fitBounds(bounds);
 
                     setTimeout(() => {
                         self.progressTarget.style.visibility = 'hidden';
