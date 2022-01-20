@@ -11,12 +11,16 @@ const BASE_MAPS = {
     hikeBike: 'https://tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png',
     osmFrance: 'http://a.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',
     standard: 'https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png',
+    mapBoxSatelite: `https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`,
+    mapBoxOutdoors: `https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`
 }
+
+const baseMap = BASE_MAPS.mapBoxOutdoors;
 
 const BASE_URL = '/';
 
 const
-    GPX_LINE_COLOR_DEFAULT = '#60374b',
+    GPX_LINE_COLOR_DEFAULT = '#38A3A5',
     GPX_LINE_COLOR_HIGHLIGHT = '#ee526d';
 
 /*
@@ -49,7 +53,7 @@ export default class extends Controller {
 
         const map = L.map('map', options);
 
-        new L.TileLayer(BASE_MAPS.standard, {
+        new L.TileLayer(baseMap, {
             attribution: 'Map data &copy; <a href="https://www.osm.org" target="_blank" rel="noreferrer nofollow">OpenStreetMap</a>',
         }).addTo(map);
 
