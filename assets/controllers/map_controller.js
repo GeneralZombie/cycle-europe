@@ -20,8 +20,8 @@ const baseMap = BASE_MAPS.mapBoxOutdoors;
 const BASE_URL = '/';
 
 const
-    GPX_LINE_COLOR_DEFAULT = '#38A3A5',
-    GPX_LINE_COLOR_HIGHLIGHT = '#ee526d';
+    GPX_LINE_COLOR_DEFAULT = '#ee526d',
+    GPX_LINE_COLOR_HIGHLIGHT = '#f2fffa';
 
 /*
  * This is an example Stimulus controller!
@@ -73,7 +73,7 @@ export default class extends Controller {
                 polyline_options: {
                     color: GPX_LINE_COLOR_DEFAULT,
                     opacity: 1,
-                    weight: 3,
+                    weight: 2,
                     lineCap: 'round'
                 }
             });
@@ -132,9 +132,9 @@ export default class extends Controller {
                 g.on('click', function(e) {
                     window.location.assign(gpxTrack.href);
                 }).on('mouseover', function(e) {
-                    e.target.setStyle({color: GPX_LINE_COLOR_HIGHLIGHT})
+                    e.target.setStyle({color: GPX_LINE_COLOR_DEFAULT, weight: 4, opacity: 0.8})
                 }).on('mouseout', function(e) {
-                    e.target.setStyle({color: GPX_LINE_COLOR_DEFAULT})
+                    e.target.setStyle({color: GPX_LINE_COLOR_DEFAULT, weight: 2, opcacity: 1})
                 });
             }
 
