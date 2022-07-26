@@ -51,10 +51,11 @@ class DefaultController extends AbstractController
             'gpxTracks' => $gpxTracks,
         ]);
     }
-
+/*
     #[Route("/about", name: "about")]
     public function about(): Response
     {
         return $this->render('default/about.html.twig');
     }
+*/
 }
