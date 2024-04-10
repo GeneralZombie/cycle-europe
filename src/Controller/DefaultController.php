@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\RecordAltitude;
-use App\Entity\RecordDistance;
 use App\Entity\Tour;
 use App\Model\GpxTrack;
 use App\Service\TourCollectionManager;
@@ -30,21 +28,10 @@ class DefaultController extends AbstractController
 
         $gpxTracks = $tourCollectionManager->getGpxTracks($cycleEurope);
 
-        $recordsDistance = $entityManager->getRepository(RecordDistance::class)->findBy([], [
-            'distance' => 'DESC',
-            'elevationGain' => 'DESC'
-        ], 10);
-        $recordsAltitude = $entityManager->getRepository(RecordAltitude::class)->findBy([], [
-            'elevationGain' => 'DESC',
-            'distance' => 'ASC'
-        ], 10);
-
         return $this->render('default/index.html.twig', [
             'cycleEurope' => $cycleEurope,
             'gpxTracks' => $gpxTracks,
             'tours' => $tours,
-            'recordsDistance' => $recordsDistance,
-            'recordsAltitude' => $recordsAltitude,
         ]);
     }
 

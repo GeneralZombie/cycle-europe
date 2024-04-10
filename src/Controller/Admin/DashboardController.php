@@ -4,8 +4,6 @@ namespace App\Controller\Admin;
 
 use App\Entity\Tour;
 use App\Entity\TourCollection;
-use App\Entity\RecordAltitude;
-use App\Entity\RecordDistance;
 use App\Model\SanityCheckResult;
 use App\Service\TourCollectionManager;
 use App\Service\TourManager;
@@ -65,7 +63,5 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Touren', 'fas fa-list', Tour::class);
         yield MenuItem::linkToCrud('Tourensammlungen', 'fas fa-list', TourCollection::class);
-        yield MenuItem::linkToCrud('Rekorde Distanz', 'fas fa-list', RecordDistance::class);
-        yield MenuItem::linkToCrud('Rekorde Höhenmeter', 'fas fa-list', RecordAltitude::class);
     }
 }
