@@ -9,7 +9,7 @@ trait EntityTrait
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: "integer")]
-    private ?int $id;
+    protected ?int $id;
 
     public function getId(): ?int
     {

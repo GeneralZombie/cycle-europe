@@ -7,16 +7,16 @@ use Doctrine\ORM\Mapping as ORM;
 trait PublishableTrait
 {
     #[ORM\Column(type: "string", length: 255)]
-    private ?string $title;
+    protected ?string $title;
 
     #[ORM\Column(type: "boolean")]
-    private bool $active = true;
+    protected bool $active = true;
 
     #[ORM\Column(type: "string", length: 255, nullable: true)]
-    private ?string $subtitle;
+    protected ?string $subtitle;
 
     #[ORM\Column(type: "string", length: 255, unique: true)]
-    private ?string $slug;
+    protected ?string $slug;
 
     public function getTitle(): ?string
     {

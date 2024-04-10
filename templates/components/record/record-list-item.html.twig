@@ -1,0 +1,14 @@
+<div class="record-list-item">
+  <p class="mb-0"><small>{{ record.date | date('d.m.Y') }}</small></p>
+  <h4>{{ record.title }}</h4>
+  {% if record.type == 'distance' %}
+    {{record.distance / 1000 }}km
+  {% elseif record.type == 'altitude' %}  
+    {{record.elevationGain}}hm
+  {% endif %}
+  {% if record.tour %}
+    <div>
+      <a href="{{ path('show', {slug: record.tour.slug}) }}"><small>{{ record.tour.title }}</small></a>
+    </div>
+  {% endif %}
+</div>

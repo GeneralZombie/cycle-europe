@@ -17,4 +17,17 @@
     {% include 'components/tour/tour-list.html.twig' with {
         tours: tours
     } %}
+
+    <div class="bg-tertiary mb-4 pt-1 pb-1">
+        <div class="container-fluid container-lg">
+            <h2 class="m-0">
+                <span class="text-white">Hall of Fame</span>
+            </h2>
+        </div>
+    </div>
+
+    {% include 'components/record/record-list.html.twig' with {
+        recordsDistance: recordsDistance,
+        recordsAltitude: recordsAltitude,
+    } %}
 {% endblock %}
